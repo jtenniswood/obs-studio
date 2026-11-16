@@ -1,0 +1,94 @@
+/* A shadcn-inspired dark variant for the OBS workspace. */
+@OBSThemeMeta {
+    name: 'Graphite';
+    id: 'org.obs-studio.custom.Graphite';
+    extends: 'com.obsproject.Yami';
+    dark: 'true';
+}
+
+@OBSThemeVars {
+    --grey1: #71717a;
+    --grey2: #52525b;
+    --grey3: #3f3f46;
+    --grey4: #303036;
+    --grey5: #27272a;
+    --grey6: #18181b;
+    --grey7: #101012;
+    --grey8: #09090b;
+
+    --text: #fafafa;
+    --text_light: var(--text);
+    --text_muted: #a1a1aa;
+
+    --primary: #37306b;
+    --primary_dark: #2a2452;
+    --primary_light: #51488a;
+    --primary_lighter: #a5a0f5;
+
+    --border_radius: 6px;
+    --border_radius_small: 4px;
+    --border_radius_large: 8px;
+
+    --input_bg: var(--bg_base);
+    --input_border_hover: var(--grey2);
+    --input_border_focus: var(--primary_lighter);
+
+    --button_bg: var(--grey5);
+    --button_bg_hover: var(--grey4);
+    --button_border: var(--border_color);
+    --button_border_hover: var(--grey2);
+    --button_border_focus: var(--primary_lighter);
+
+    --action_bg: #fafafa;
+    --action_bg_hover: #e4e4e7;
+    --action_text: #18181b;
+    --live_bg: #7f1d1d;
+    --live_bg_hover: #991b1b;
+    --live_border: #f87171;
+}
+
+QDockWidget::title {
+    background-color: var(--bg_base);
+    border-color: var(--border_color);
+}
+
+OBSDock QToolBar QToolButton:hover {
+    background-color: var(--button_bg_hover);
+}
+
+QPushButton:enabled:focus,
+OBSDock QToolBar QToolButton:enabled:focus {
+    border-color: var(--button_border_focus);
+}
+
+#controlsFrame #streamButton:enabled:!pressed,
+#controlsFrame #recordButton:enabled:!pressed {
+    background-color: var(--action_bg);
+    border-color: var(--action_bg);
+    color: var(--action_text);
+    font-weight: bold;
+}
+
+#controlsFrame #streamButton:enabled:hover:!pressed,
+#controlsFrame #recordButton:enabled:hover:!pressed {
+    background-color: var(--action_bg_hover);
+    border-color: var(--action_bg_hover);
+}
+
+#controlsFrame #streamButton:enabled.state-active,
+#controlsFrame #recordButton:enabled.state-active {
+    background-color: var(--live_bg);
+    border-color: var(--live_border);
+    color: var(--text);
+}
+
+#controlsFrame #streamButton:enabled:hover:!pressed.state-active,
+#controlsFrame #recordButton:enabled:hover:!pressed.state-active {
+    background-color: var(--live_bg_hover);
+    border-color: var(--live_border);
+}
+
+#controlsFrame #streamButton:enabled:focus:!pressed,
+#controlsFrame #recordButton:enabled:focus:!pressed {
+    border-color: var(--button_border_focus);
+}
