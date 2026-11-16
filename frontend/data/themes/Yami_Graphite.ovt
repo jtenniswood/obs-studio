@@ -25,9 +25,13 @@
     --primary_light: #51488a;
     --primary_lighter: #a5a0f5;
 
-    --border_radius: 6px;
-    --border_radius_small: 4px;
-    --border_radius_large: 8px;
+    /* A 4 px spacing grid and the shadcn small, medium, and base radii. */
+    --space_1: 4px;
+    --space_2: 8px;
+    --space_3: 12px;
+    --border_radius_small: 6px;
+    --border_radius: 8px;
+    --border_radius_large: 10px;
 
     --input_bg: var(--bg_base);
     --input_border_hover: var(--grey2);
@@ -47,13 +51,69 @@
     --live_border: #f87171;
 }
 
-QDockWidget::title {
+OBSBasic::separator {
+    width: var(--space_2);
+    height: var(--space_2);
+}
+
+OBSDock > QWidget {
+    border-bottom-left-radius: var(--border_radius_large);
+    border-bottom-right-radius: var(--border_radius_large);
+}
+
+OBSDock::title {
     background-color: var(--bg_base);
     border-color: var(--border_color);
+    border-top-left-radius: var(--border_radius_large);
+    border-top-right-radius: var(--border_radius_large);
+    padding: var(--space_2) var(--space_3);
+}
+
+#scenes,
+#sources {
+    padding: var(--space_1);
+}
+
+#scenes::item {
+    padding-left: var(--space_2);
+}
+
+OBSDock QToolBar {
+    padding: var(--space_1);
+    spacing: var(--space_1);
 }
 
 OBSDock QToolBar QToolButton:hover {
     background-color: var(--button_bg_hover);
+}
+
+#controlsFrame,
+#transitionsFrame {
+    padding: var(--space_2);
+}
+
+#controlsFrame QPushButton {
+    margin: var(--space_1) 0;
+    padding-left: var(--space_3);
+    padding-right: var(--space_3);
+    font-weight: 500;
+}
+
+#controlsFrame #pauseRecordButton,
+#controlsFrame #saveReplayButton,
+#controlsFrame #virtualCamConfigButton {
+    padding-left: var(--space_1);
+    padding-right: var(--space_1);
+}
+
+VolumeControl .mixer-category {
+    background-color: var(--grey5);
+    color: var(--text_muted);
+}
+
+VolumeControl.volume-pinned .mixer-category {
+    background-color: var(--primary_dark);
+    color: var(--text);
 }
 
 QPushButton:enabled:focus,
